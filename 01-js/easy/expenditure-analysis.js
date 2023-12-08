@@ -14,6 +14,22 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
+  if(transactions.length>0){
+    const totalSpentByCategoryObj = transactions.reduce((acc,currTransaction)=>{
+      if(currTransaction.category in acc){  
+        acc[currTransaction.category]+=currTransaction.price;
+      }else{
+        acc[currTransaction.category] = currTransaction.price;
+      }
+      return acc;
+    },{})
+    const result = Object.keys(totalSpentByCategoryObj).map(category => ({
+      "category": category,
+      "totalSpent": totalSpentByCategoryObj[category]
+    }));
+    return result;
+  }
+  
   return [];
 }
 

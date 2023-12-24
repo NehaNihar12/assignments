@@ -4,7 +4,15 @@
 */
 
 function wait(n) {
-    
+    const p = new Promise((resolve,reject)=>{
+        setTimeout(resolve,n*1000);
+    })
+    return p;
 }
+
+wait(2).then(()=>{
+    console.log('resolved after n seconds');
+});
+
 
 module.exports = wait;

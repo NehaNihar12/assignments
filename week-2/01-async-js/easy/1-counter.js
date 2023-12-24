@@ -7,6 +7,12 @@
 const counter = () =>{
     let counter = 1
     console.log(counter);
-    let timerId = setInterval(()=> {console.log(++counter)},1000);
+    let timerId = setInterval(()=> {
+        console.log(++counter);
+        // if (counter === 5) {
+        //     clearInterval(timerId); // Clear the interval
+        //     console.log('Counter stopped.');
+        // }
+    },1000);
 }
 counter();
